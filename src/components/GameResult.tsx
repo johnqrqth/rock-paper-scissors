@@ -23,7 +23,7 @@ const GameResult: React.FC = () => {
   };
 
   return (
-    <div className="w-full flex justify-center items-center gap-8 md:gap-16 text-center">
+    <div className="w-full grid grid-cols-2 md:grid-cols-3 justify-items-center items-center gap-x-8 gap-y-16 md:gap-x-16">
       <ChoiceDisplay
         label="You Picked"
         choice={userChoice}
@@ -31,7 +31,7 @@ const GameResult: React.FC = () => {
       />
 
       {showResultText && (
-        <div className="mx-4 order-first md:order-none">
+        <div className="w-full md:w-auto order-last col-span-2 md:order-none md:col-span-1 text-center">
           <p
             data-cy="game-result-text"
             className="text-5xl font-bold uppercase text-white mb-4"
@@ -41,7 +41,7 @@ const GameResult: React.FC = () => {
           <button
             data-cy="play-again-button"
             onClick={handlePlayAgain}
-            className="bg-white text-[hsl(229,25%,31%)] px-12 py-3 rounded-lg font-semibold tracking-wider hover:opacity-90 transition-opacity"
+            className="bg-white text-[hsl(229,25%,31%)] mb-5 px-12 py-3 rounded-lg font-semibold tracking-wider hover:opacity-90 transition-opacity"
           >
             PLAY AGAIN
           </button>
