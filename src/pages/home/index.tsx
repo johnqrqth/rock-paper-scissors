@@ -24,14 +24,14 @@ const HomeScreen: React.FC = () => {
 
     setTimeout(() => {
       dispatch(setComputerChoice());
-    }, 1500); // 1.5 second delay
+    }, 1500);
   };
 
   return (
-    <div className="bg-radial-custom text-white min-h-screen flex flex-col items-center p-8 relative">
+    <div className="bg-radial-custom font-barlow text-white min-h-screen flex flex-col items-center p-6 md:p-8 relative">
       <GameHeader score={score} />
 
-      <main className="w-full flex-grow flex items-center justify-center">
+      <main className="w-full flex flex-grow mt-10">
         {status === "picking" ? (
           <GameChoices onChoiceSelect={handleChoiceSelect} />
         ) : (
@@ -41,7 +41,8 @@ const HomeScreen: React.FC = () => {
 
       <button
         onClick={() => setIsRulesModalOpen(true)}
-        className="absolute bottom-8 right-8 border-2 border-header-outline text-white uppercase tracking-widest px-10 py-2 rounded-lg hover:bg-white hover:text-[hsl(229,25%,31%)] transition-colors duration-200"
+        className="absolute font-barlow bottom-8 border-2 border-header-outline text-white uppercase tracking-widest px-10 py-2 rounded-lg hover:bg-white hover:text-[hsl(229,25%,31%)] transition-colors duration-200 
+                   md:right-8 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0"
       >
         Rules
       </button>

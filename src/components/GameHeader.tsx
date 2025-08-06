@@ -8,13 +8,13 @@ interface GameHeaderProps {
 
 const GameHeader: React.FC<GameHeaderProps> = ({ score }) => {
   return (
-    <div className="w-full max-w-lg mx-auto p-6">
-      <div className="border-2 border-[hsl(217,16%,45%)] rounded-lg p-6 flex justify-between items-center bg-transparent">
+    <div className="w-full max-w-md md:max-w-2xl mx-auto">
+      <div className="border-2 border-[hsl(217,16%,45%)] rounded-lg md:rounded-xl p-3 md:p-4 flex justify-between items-center bg-transparent">
         <div className="text-white">
           <img
             src={logoSrc}
             alt="Rock Paper Scissors Lizard Spock"
-            className="h-20"
+            className="h-10 md:h-20 "
           />
         </div>
         <ScoreField score={score} />
