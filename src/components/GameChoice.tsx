@@ -6,7 +6,6 @@ import lizard from ".././assets/images/icon-lizard.svg";
 import rock from ".././assets/images/icon-rock.svg";
 import pentagonBg from ".././assets/images/bg-pentagon.svg";
 
-type Choice = "rock" | "paper" | "scissors" | "lizard" | "spock";
 
 interface GameChoicesProps {
   onChoiceSelect: (choice: Choice) => void;

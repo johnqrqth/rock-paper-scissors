@@ -1,18 +1,24 @@
 import React, { useState } from "react";
 import GameHeader from "../../components/GameHeader";
 import GameChoices from "../../components/GameChoice";
+import RulesModal from "../../components/modals/RulesModal";
 
-const HomeScreen = () => {
+const HomeScreen: React.FC = () => {
   const [score, setScore] = useState<number>(10);
+  const [isRulesModalOpen, setIsRulesModalOpen] = useState(false);
 
   const handleRulesClick = () => {
-    // You can add the logic to show a rules modal here
     console.log("Rules button clicked!");
+    setIsRulesModalOpen(true);
+  };
+
+  const handleChoiceSelect = (choice: Choice) => {
+    console.log(choice);
   };
   return (
     <div className="bg-radial-custom h-[100vh] w-[100vw] flex flex-col items-center relative">
       <GameHeader score={score} />
-      <GameChoices onChoiceSelect={() => {}} />
+      <GameChoices onChoiceSelect={handleChoiceSelect} />
 
       <button
         onClick={handleRulesClick}
@@ -20,6 +26,8 @@ const HomeScreen = () => {
       >
         Rules
       </button>
+
+      {isRulesModalOpen && <RulesModal onClose={() => setIsRulesModalOpen(false)} />}
     </div>
   );
 };
