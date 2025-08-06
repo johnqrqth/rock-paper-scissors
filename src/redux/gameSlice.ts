@@ -44,11 +44,11 @@ const gameSlice = createSlice({
         (state.userChoice === "lizard" && (state.computerChoice === "spock" || state.computerChoice === "paper")) ||
         (state.userChoice === "spock" && (state.computerChoice === "scissors" || state.computerChoice === "rock"))
       ) {
-        state.result = "win";
+        state.result = "WIN";
         state.score += 1;
         saveScoreToStorage(state.score); 
       } else {
-        state.result = "lose";
+        state.result = "LOSE";
         state.score = state.score > 0 ? state.score - 1 : 0;
         saveScoreToStorage(state.score); 
       }

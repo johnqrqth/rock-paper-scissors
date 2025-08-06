@@ -4,12 +4,11 @@ import { playAgain } from "../redux/gameSlice";
 import type { RootState } from "../redux/store";
 import { ChoiceDisplay } from "./ChoiceDisplay";
 
-
-
-
-const GameResult:React.FC = () => {
+const GameResult: React.FC = () => {
   const dispatch = useDispatch();
-  const { userChoice, computerChoice, result } = useSelector((state: RootState) => state.game);
+  const { userChoice, computerChoice, result } = useSelector(
+    (state: RootState) => state.game
+  );
   const [showResultText, setShowResultText] = useState(false);
 
   useEffect(() => {
@@ -25,12 +24,22 @@ const GameResult:React.FC = () => {
 
   return (
     <div className="w-full flex justify-center items-center gap-8 md:gap-16 text-center">
-      <ChoiceDisplay label="You Picked" choice={userChoice} isWinner={result === "win"} />
+      <ChoiceDisplay
+        label="You Picked"
+        choice={userChoice}
+        isWinner={result === "WIN"}
+      />
 
       {showResultText && (
         <div className="mx-4 order-first md:order-none">
-          <p className="text-5xl font-bold uppercase text-white mb-4">You {result}</p>
+          <p
+            data-cy="game-result-text"
+            className="text-5xl font-bold uppercase text-white mb-4"
+          >
+            YOU {result}
+          </p>
           <button
+            data-cy="play-again-button"
             onClick={handlePlayAgain}
             className="bg-white text-[hsl(229,25%,31%)] px-12 py-3 rounded-lg font-semibold tracking-wider hover:opacity-90 transition-opacity"
           >
@@ -39,7 +48,11 @@ const GameResult:React.FC = () => {
         </div>
       )}
 
-      <ChoiceDisplay label="The House Picked" choice={computerChoice} isWinner={result === "lose"} />
+      <ChoiceDisplay
+        label="The House Picked"
+        choice={computerChoice}
+        isWinner={result === "LOSE"}
+      />
     </div>
   );
 };

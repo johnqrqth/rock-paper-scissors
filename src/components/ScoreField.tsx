@@ -10,7 +10,7 @@ const ScoreField: React.FC<ScoreFieldProps> = ({ score }) => {
       <div className="text-sm font-semibold mb-1 tracking-wider text-[hsl(229,64%,46%)]">
         SCORE
       </div>
-      <div className="text-4xl font-bold text-[hsl(229,25%,31%)]">{score}</div>
+      <div data-cy="score-value"  className="text-4xl font-bold text-[hsl(229,25%,31%)]">{score}</div>
     </div>
   );
 };

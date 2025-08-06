@@ -8,9 +8,11 @@ export const ChoiceDisplay: React.FC<{
 }> = ({ label, choice, isWinner = false }) => {
   const data = choice ? choiceDetails[choice] : null;
 
+  const labelDataCy = label.toLowerCase().replace(' ', '-') + '-label';
+
   return (
     <div className="flex flex-col items-center">
-      <p className="text-white uppercase tracking-widest mb-12 text-lg font-semibold">{label}</p>
+      <p data-cy={labelDataCy} className="text-white uppercase tracking-widest mb-12 text-lg font-semibold">{label}</p>
       <div className="relative w-40 h-40 md:w-56 md:h-56">
         {isWinner && (
           <div className="absolute inset-[-2rem] rounded-full shadow-[0_0_0_30px_rgba(255,255,255,0.05),_0_0_0_50px_rgba(255,255,255,0.04),_0_0_0_70px_rgba(255,255,255,0.03)] z-0"></div>
