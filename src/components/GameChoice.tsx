@@ -8,7 +8,6 @@ import pentagonBg from ".././assets/images/bg-pentagon.svg";
 import type { Choice } from "../types";
 import { choiceData, choiceDetails } from "../utils/choices";
 
-
 interface GameChoicesProps {
   onChoiceSelect: (choice: Choice) => void;
   disabled?: boolean;
@@ -18,8 +17,6 @@ const GameChoices: React.FC<GameChoicesProps> = ({
   onChoiceSelect,
   disabled = false,
 }) => {
-  
-
   const handleChoiceClick = (choice: Choice): void => {
     if (!disabled) {
       onChoiceSelect(choice);
@@ -41,19 +38,13 @@ const GameChoices: React.FC<GameChoicesProps> = ({
           className={`
             absolute w-24 h-24 rounded-full shadow-lg transition-all duration-200 
             hover:scale-105 active:scale-95 disabled:cursor-not-allowed
-            ${choice.gradient} ${choice.position}
+            ${choice.gradient} ${choice.position} ${choice.shadow}
           `}
           aria-label={`Select ${choice.id}`}
         >
-          <div className="w-full h-full rounded-full p-2">
-            <div className="w-full h-full bg-white rounded-full flex items-center justify-center shadow-inner">
-              <div>
-                <img
-                  src={choice.icon}
-                  alt={choice.id}
-                  className="h-10"
-                />
-              </div>
+          <div className="w-full h-full rounded-full p-3">
+            <div className="w-full h-full bg-white rounded-full flex items-center justify-center shadow-shadow-[inset_0_4px_rgba(0,0,0,0.15)]">
+              <img src={choice.icon} alt={choice.id} className="h-10" />
             </div>
           </div>
         </button>
