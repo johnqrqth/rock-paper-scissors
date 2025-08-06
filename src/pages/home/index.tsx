@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import GameHeader from "../../components/GameHeader";
 import GameChoices from "../../components/GameChoice";
 import RulesModal from "../../components/modals/RulesModal";
+import { getSavedScore, saveScoreToStorage } from "../../utils";
 
 const HomeScreen: React.FC = () => {
-  const [score, setScore] = useState<number>(10);
-  const [isRulesModalOpen, setIsRulesModalOpen] = useState(false);
+    const [isRulesModalOpen, setIsRulesModalOpen] = useState(false);
+    const [score, setScore] = useState<number>(getSavedScore());
+
+    useEffect(() => {
+    saveScoreToStorage(score);
+  }, [score]); 
 
   const handleRulesClick = () => {
     console.log("Rules button clicked!");
