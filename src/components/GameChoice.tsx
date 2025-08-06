@@ -5,6 +5,7 @@ import paper from ".././assets/images/icon-paper.svg";
 import lizard from ".././assets/images/icon-lizard.svg";
 import rock from ".././assets/images/icon-rock.svg";
 import pentagonBg from ".././assets/images/bg-pentagon.svg";
+import type { Choice } from "../types";
 
 
 interface GameChoicesProps {
